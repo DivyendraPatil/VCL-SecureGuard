@@ -1,0 +1,13 @@
+#This part of the code should be in vcl_recv
+#Block URL extensions defined in ext_block.init
+if (table.contains(extension, req.url.ext)) {
+  error 650; 
+}
+
+if(req.http.user-agent ~ "WordPress" || req.http.user-agent ~ "AHC" || req.http.user-agent ~ "Baidu" || req.http.user-agent ~ "GGG" || req.http.user-agent ~ "YourBugBountyFriend" || req.http.user-agent ~ "PHP" || req.http.user-agent ~ "Noname" || req.http.user-agent ~ "Nmap" || req.http.user-agent ~ "Fuzz" || req.http.user-agent ~ "betterup"){
+      error 650;
+}
+
+if (req.url ~ "etc/passwd" || req.url ~ "/etc/profile" || req.url ~ "/etc/hosts" || req.url ~ "/.git/config" || req.url ~ "/.git/HEAD" || req.url ~ "/.env.backup" || req.url ~ "/wlwmanifest.xml" || req.url ~ "mmi360.net"){
+      error 650;
+}

@@ -1,0 +1,9 @@
+#In vcl_error you need a customized response
+#Change the synthetic responses below to whatever you want
+
+if (obj.status == 650) {
+  set obj.status = 405;
+  set obj.response = "Not Acceptable";
+  synthetic "Not Acceptable";
+  return (deliver);
+}

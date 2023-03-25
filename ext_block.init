@@ -1,0 +1,33 @@
+#Declared in Init
+#Change the extensions below to what you want to block
+
+table extension {
+	"7z": "7z",
+	"gz": "gz",
+	"pl": "pl",
+	"py": "py",
+	"sh": "sh",
+	"bak": "bak",
+	"bck": "bck",
+	"cfg": "cfg",
+	"cfm": "cfm",
+	"cgi": "cgi",
+	"env": "env",
+	"exe": "exe",
+	"fcc": "fcc",
+	"ini": "ini",
+	"jsp": "jsp",
+	"log": "log",
+	"nsf": "nsf",
+	"old": "old",
+	"php": "php",
+	"rar": "rar",
+	"sql": "sql",
+	"swp": "swp",
+	"tar": "tar",
+	"xsd": "xsd",
+	"yml": "yml",
+	"zip": "zip",
+	"yaml": "yaml",
+	"sqlite3": "sqlite3",
+}

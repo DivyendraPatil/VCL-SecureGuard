@@ -3,6 +3,9 @@ This VCL code is designed to block potentially harmful requests from reaching yo
 It includes logic for blocking URL's with certain extensions, blocking requests from certain user agents, and blocking URL's with certain patterns.
 
 On average, the extension and user-agent blocks implemented in this VCL configuration file are stopping over 400k requests per day, with an average rate of 350 requests per second.
+
+![img](https://github.com/DivyendraPatil/VCL-SecureGuard/blob/main/405_img.png?raw=true)
+
 ## Installation
 
 The code consists of three separate files:

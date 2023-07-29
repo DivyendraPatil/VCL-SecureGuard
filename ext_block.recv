@@ -1,13 +1,17 @@
 #This part of the code should be in vcl_recv
 #Block URL extensions defined in ext_block.init
 if (table.contains(extension, req.url.ext)) {
-  error 650; 
+  error 651;
 }
 
-if(req.http.user-agent ~ "WordPress" || req.http.user-agent ~ "AHC" || req.http.user-agent ~ "Baidu" || req.http.user-agent ~ "GGG" || req.http.user-agent ~ "YourBugBountyFriend" || req.http.user-agent ~ "PHP" || req.http.user-agent ~ "Noname" || req.http.user-agent ~ "Nmap" || req.http.user-agent ~ "Fuzz" || req.http.user-agent ~ "betterup"){
-      error 650;
+if(req.http.user-agent ~ "WordPress" || req.http.user-agent ~ "AHC" || req.http.user-agent ~ "Baidu" || req.http.user-agent ~ "GGG" || req.http.user-agent ~ "YourBugBountyFriend" || req.http.user-agent ~ "PHP" || req.http.user-agent ~ "Noname" || req.http.user-agent ~ "Nmap" || req.http.user-agent ~ "Fuzz" || req.http.user-agent ~ "betterup" || req.http.user-agent ~ "sqlmap" || req.http.user-agent ~ "zgrab" || req.http.user-agent ~ "Nessus" || req.http.user-agent ~ "Test Certificate Info" || req.http.user-agent ~ "masscan" ||  req.http.user-agent ~ "Expanse"){
+      error 651;
 }
 
-if (req.url ~ "etc/passwd" || req.url ~ "/etc/profile" || req.url ~ "/etc/hosts" || req.url ~ "/.git/config" || req.url ~ "/.git/HEAD" || req.url ~ "/.env.backup" || req.url ~ "/wlwmanifest.xml" || req.url ~ "mmi360.net"){
-      error 650;
+if (req.url ~ "etc/passwd" || req.url ~ "/etc/profile" || req.url ~ "/etc/hosts" || req.url ~ "/.git/config" || req.url ~ "/.git/HEAD" || req.url ~ "/.env.backup" || req.url ~ "/.well-known"|| req.url.basename ~ "wlwmanifest.xml" || req.url.basename ~ "mmi360.net" || req.url.basename ~ "/credentials" || req.url.basename ~ "/env" || req.url.basename ~ "/.env" || req.url.basename ~ "/api/log"){
+      error 651;
+}
+
+if (req.url.path == "/account/register" && req.http.user-agent ~ "Mozilla/5.0 \(Windows NT 10\.0; Win64; x64; rv:52\.0\) Gecko/20100101 Firefox/52\.0 Cyberfox/" && tls.client.ja3_md5 == "61d0d709fe7ac199ef4b2c52bc8cef75") {
+        error 652;
 }

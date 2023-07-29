@@ -3,6 +3,7 @@
 
 table extension {
 	"7z": "7z",
+	"db": "db",
 	"gz": "gz",
 	"pl": "pl",
 	"py": "py",
@@ -12,6 +13,7 @@ table extension {
 	"cfg": "cfg",
 	"cfm": "cfm",
 	"cgi": "cgi",
+	"dat": "dat",
 	"env": "env",
 	"exe": "exe",
 	"fcc": "fcc",
@@ -29,5 +31,7 @@ table extension {
 	"yml": "yml",
 	"zip": "zip",
 	"yaml": "yaml",
+	"npmrc": "npmrc",
+	"msmtprc": "msmtprc",
 	"sqlite3": "sqlite3",
 }

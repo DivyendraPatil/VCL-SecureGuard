@@ -1,9 +1,35 @@
 #In vcl_error you need a customized response
 #Change the synthetic responses below to whatever you want
 
+# Requests that are tarpitted after SigSci returns a 406
 if (obj.status == 650) {
   set obj.status = 405;
-  set obj.response = "Not Acceptable";
-  synthetic "Not Acceptable";
+  set obj.response = "Signal - Not Acceptable";
+  synthetic "Signal - Not Acceptable";
+  return (deliver);
+}
+
+# Requests tarpitted after being blocked from table/ua/url block
+if (obj.status == 651) {
+  set req.http.tarpit = "1";
+  set obj.status = 405;
+  set obj.response = "Block - Not Acceptable";
+  synthetic "Block - Not Acceptable";
+  return (deliver);
+}
+
+# Requests blocked after a manual JA3 Block is triggered
+if (obj.status == 652) {
+  set obj.status = 405;
+  set obj.response = "5DM3AJ - Not Acceptable";
+  synthetic "5DM3AJ - Not Acceptable";
+  return (deliver);
+}
+
+# Requests blocked after a manual JA3 Block is triggered
+if (obj.status == 653) {
+  set obj.status = 405;
+  set obj.response = "NSADAB - Not Acceptable";
+  synthetic "NSADAB - Not Acceptable";
   return (deliver);
 }
